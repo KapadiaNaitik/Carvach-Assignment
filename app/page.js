@@ -31,7 +31,7 @@ export default function App() {
         <div className="mt-6 text-center">
           <Link
             href="/tasks"
-            className="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300"
           >
             View Tasks
           </Link>
