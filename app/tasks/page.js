@@ -14,30 +14,6 @@ export default function TasksPage() {
     setTasks(storedTasks);
   }, []);
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-    localStorage.setItem(
-      "tasks",
-      JSON.stringify(tasks.filter((task) => task.id !== id))
-    );
-  };
-
-  const toggleTaskCompletion = (id) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-  };
-
-  const editTask = (id, updatedTask) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === id ? { ...task, ...updatedTask } : task
-    );
-    setTasks(updatedTasks);
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-  };
-
   const filteredTasks = tasks.filter((task) =>
     task.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -66,12 +42,7 @@ export default function TasksPage() {
             <option value="completed">Sort by Completion</option>
           </select>
         </div>
-        <TaskList
-          tasks={sortedTasks}
-          onDeleteTask={deleteTask}
-          onToggleCompletion={toggleTaskCompletion}
-          onEditTask={editTask}
-        />
+        <TaskList tasks={sortedTasks} />
       </div>
     </div>
   );

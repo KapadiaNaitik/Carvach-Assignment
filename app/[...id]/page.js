@@ -40,9 +40,6 @@ export default function Task() {
 
   const handleStatusChange = () => {
     setTask({ ...task, completed: !task.completed });
-    const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-    const updatedTasks = storedTasks.map((t) => (t.id === task.id ? task : t));
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
   return (
